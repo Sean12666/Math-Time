@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <Windows.h>
 using namespace std;
 
 // #define SHUTDOWN
@@ -13,12 +14,14 @@ int main()
 	const int quest = 3;
 	int answer[quest], ans[quest];
 	bool mis[quest] = { false };
+	cout << "Welcome to Math Time!" << endl;
+	Sleep(2000);
+	cout << "You need to get 50+ in 1 minute or your computer will shutdown." << endl;
+	Sleep(2000);
+	cout << "--------------------------------------------------" << endl;
 #ifdef SHUTDOWN
 	system("shutdown /s /t 60");
 #endif // SHUTDOWN
-	cout << "Welcome to Math Time!" << endl;
-	cout << "You need to get 50+ in 1 minute or your computer will shutdown." << endl;
-	cout << "--------------------------------------------------" << endl;
 	double score = 0;
 	srand(static_cast<unsigned int>(time(NULL)));
 	for (int i = 0; i < quest; i++)
@@ -55,8 +58,11 @@ int main()
 		{
 			mis[i] = true;
 		}
+		cout << endl;
+		Sleep(1000);
 	}
 	cout << "--------------------------------------------------" << endl;
+	Sleep(1000);
 	if (score > 50)
 	{
 		cout << "Congratulations!" << endl;
@@ -69,11 +75,14 @@ int main()
 		cout << "Come on!" << endl;
 		
 	}
+	cout << endl;
+	Sleep(1000);
 	for (int i = 0; i < quest; i++)
 	{
 		if (mis[i])
 		{
 			cout << "The answer of Question " << i + 1 << " is wrong." << endl;
+			Sleep(1000);
 		}
 	}
 	return 0;
